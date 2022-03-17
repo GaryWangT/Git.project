@@ -1,0 +1,20 @@
+import cufflinks as cf
+
+qf = cf.QuantFig(SPY_df, title = 'TWSE Forecast', legend = 'bottom', name = 'TWSE',up_color='red', down_color='green',
+                vspan={'x0':SPY_df.index[-20], 'x1':SPY_df.index[-1],'color':'rgba(0, 0, 255, 0.3)','fill':True,'opacity':.4})
+
+
+#### add Volume ####
+#qf.add_volume()
+
+#### add Trend Line ####
+date0 = SPY_df.index[-20]
+date1 = SPY_df.index[-1]
+qf.add_trendline(date0 = date0, date1 = date1, on = 'close')
+
+# qf.add_shapes(hline = 390, vline = '2021-02-04')
+# qf.add_shapes()
+qf.add_bollinger_bands(fill = False)
+fig.update_annotations(...)
+
+qf.iplot() 
